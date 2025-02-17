@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300;400;600&display=swap');
+
+:root {
+    --background: #181818;         /* Fondo gris oscuro */
+    --text_green: #00a67d; 
+    --text_red: #df3079 ; 
+    --text_blue: #2e95d3;
+}
+
+#phd::after {
+    content: '|'; 
+    display: inline-block;
+    margin-left: 5px;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+header {
+    padding: 20px;
+}
+
+#name {
+    color: var(--text_red);
+}
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-container img {
+    width: 120px;
+    border-radius: 10%;
+    margin-right: 5%;
+}
+
+.header-container h1 {
+    margin-left: 5%;
+    text-align: left;
+
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text_blue);
+    font-weight: bold;
+}
+
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
+body {
+    background-color: var(--background);
+    color: var(--text_red);
+    font-family: 'Overpass Mono', monospace;
+    text-align: center;
+}
+
+h1 {
+    color: var(--text_green);
+}
+
+h2 {
+    color: var(--text_red);
+}
+
+.section {
+    display: inline-block;  
+    width: 30%;             
+    margin: 10px; 
+    margin-top: 45px;         
+    background-color: #222; 
+    padding: 20px;          
+    box-sizing: border-box;  
+}
+
+.section a {
+    text-decoration: none;  
+    display: inline-block;         
+    height: 100%;         
+    color: var(--text_green);  
+    transition: color 1s, text-decoration 1s, scale 1s;
+}
+
+.section a:hover {
+    text-decoration: underline;
+    color: var(--text_blue);
+    transform: scale(1.1);
+}
+
+
+@media screen and (max-width: 768px) {
+    .section {
+        width: 100%;  
+    }
+}
+

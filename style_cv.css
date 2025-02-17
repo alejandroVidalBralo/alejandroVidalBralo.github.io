@@ -1,0 +1,63 @@
+
+h1 a {
+    text-decoration: none;
+    color: var(--text_green); 
+    transition: color 0.5s, text-decoration 0.5s; 
+
+}
+
+h1 a:hover {
+    text-decoration: underline;
+    color: var(--text_blue)
+}
+
+
+.contenedor {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px;
+    justify-content: center; 
+}
+
+.elemento {
+    /*background-color: #000000;*/
+    text-align: center;
+    width: calc(25% - px); 
+    padding: 10px;
+    border-radius: 2%;
+}
+
+.elemento ul li {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.elemento ul li a  {
+    text-decoration: none;
+    color: var(--text_blue); /* Color para los enlaces (azul) */
+    font-weight: bold;
+}
+
+.date {
+    color: var(--text_green); /* Color para las fechas (rojo anaranjado, puedes cambiarlo) */
+    font-weight: bold;
+    display: inline-block;
+}
+
+.text {
+    color: rgb(212, 211, 211); /* Color para el texto (gris oscuro) */
+    display: inline-block;
+}
+
+
+@media (min-width: 1000px) {
+    .contenedor {
+        flex-direction: row; 
+        flex-wrap: wrap;
+    }
+
+    .elemento {
+        width: calc(33.33% - 60px); 
+    }
+}
