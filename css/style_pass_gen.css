@@ -1,0 +1,53 @@
+
+h1 a {
+    text-decoration: none;
+    color: var(--text_green); 
+    transition: color 0.5s, text-decoration 0.5s; 
+
+}
+
+h1 a:hover {
+    text-decoration: underline;
+    color: var(--text_blue)
+}
+
+
+
+.container {
+    background: rgb(28, 28, 28);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+}
+
+
+input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #4b4b4b;
+    border-radius: 5px;
+    background-color: #4b4b4b;
+    color: white;
+    
+}
+
+button {
+    width: 20%;
+    padding: 10px 15px;
+    border: none;
+    background-color: var(--text_green); 
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.5s; 
+
+}
+button:hover {
+    background-color: var(--text_blue); 
+}
