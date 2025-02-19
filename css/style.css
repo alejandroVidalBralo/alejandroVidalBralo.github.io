@@ -145,3 +145,36 @@ footer {
 footer a{
     margin: 10px;
 }
+
+
+
+#useful-link{
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+#useful-link.section a:hover {
+    text-decoration: none;
+    color: var(--text_blue);
+    transform: scale(1.1);
+}
+
+.dropdown-list {
+    margin-top: 10px;
+}
+
+.dropdown-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.dropdown-list li {
+    padding: 8px 0;
+}
+
+.dropdown-list a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+}
