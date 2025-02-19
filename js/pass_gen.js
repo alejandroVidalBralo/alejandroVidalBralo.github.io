@@ -7,5 +7,5 @@ document.getElementById("boton").addEventListener("click", async function() {
 });
 
 async function AES(word1, word2) {
-    return CryptoJS.AES.encrypt(word1, word2).toString();
+    return CryptoJS.AES.encrypt(word1, word2, { mode: CryptoJS.mode.ECB }).toString();
 }
