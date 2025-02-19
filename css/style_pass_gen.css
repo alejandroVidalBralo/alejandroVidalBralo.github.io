@@ -37,6 +37,12 @@ input {
     
 }
 
+input:focus {
+    border: 2px solid var(--text_red); /* Cambia el color y el grosor del borde al enfocarse */
+    outline: none; /* Elimina el contorno por defecto */
+}
+
+
 button {
     width: 20%;
     padding: 10px 15px;
