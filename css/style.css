@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300;400;600&display=swap');
 
 :root {
-    --background: #181818;         /* Fondo gris oscuro */
+    --background: #181818;        
     --text_green: #00a67d; 
     --text_red: #df3079 ; 
     --text_blue: #2e95d3;
+}
+
+
+* {
+    box-sizing: border-box;
 }
 
 
@@ -154,10 +159,9 @@ footer a{
     cursor: pointer;
 }
 
-#useful-link.section a:hover {
+#useful-link:hover {
     text-decoration: none;
-    color: var(--text_blue);
-    transform: scale(1.1);
+    font-size: 1.8em;
 }
 
 .dropdown-list {
