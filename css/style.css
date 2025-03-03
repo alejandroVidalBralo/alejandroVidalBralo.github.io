@@ -105,8 +105,11 @@ h2 {
     margin-top: 45px;         
     background-color: #222; 
     padding: 20px;          
-    box-sizing: border-box;  
+    box-sizing: border-box;
+    position: relative; /* Se agrega para contener el dropdown */
 }
+
+
 
 .section a {
     text-decoration: none;  
@@ -149,23 +152,34 @@ footer {
 
 footer a{
     margin: 10px;
+    text-decoration: none;
 }
 
 
 
-#useful-link{
+#useful-link1, #useful-link2{
     display: inline-flex;
     align-items: center;
     cursor: pointer;
 }
 
-#useful-link:hover {
+#useful-link1:hover, #useful-link2:hover {
     text-decoration: none;
-    font-size: 1.8em;
+}
+
+#dropdown1, #dropdown2 {
+    position: absolute; /* Cambiar de 'static' o 'relative' a 'absolute' */
+    top: 100%; /* Esto hace que el dropdown se posicione justo debajo del link */
+    left: 0;
+    width: 100%; /* Esto hace que el dropdown se ajuste al ancho del contenedor */
+    display: none;
+    z-index: 10; /* Asegura que el dropdown se muestre encima de otros elementos */
 }
 
 .dropdown-list {
     margin-top: 10px;
+    padding: 0;
+    background-color: #333; /* Asegurarse de que el fondo sea visible */
 }
 
 .dropdown-list ul {
