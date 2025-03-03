@@ -17,6 +17,7 @@ h1 a:hover {
     flex-direction: column; 
     gap: 10px;
     justify-content: center; 
+    margin: 0 auto;
 }
 
 .elemento {
