@@ -1,63 +1,98 @@
-
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
     const gallery = document.getElementById("gallery");
+    const tagsContainer = document.getElementById("tags-container");
 
-    // Lista de imágenes (puedes generarla dinámicamente)
+    // Lista de imágenes con prefijos
     const images = ["baobab_1.jpeg", "carolina_1.jpeg", "strawberry_1.jpeg"];
+    let activeTags = [];
 
-    let loadedImages = 0;
+    // Función para cargar imágenes según los tags activos
+    function loadImages() {
+        gallery.innerHTML = ""; // Limpiar galería
 
-    images.forEach((fileName, index) => {
-        const div = document.createElement("div");
-        div.classList.add("gallery-item");
+        // Si no hay tags seleccionados, no mostrar nada
+        if (activeTags.length === 0) {
+            return;
+        }
 
-        const img = document.createElement("img");
-        img.src = `img/plants/${fileName}`;
-        img.alt = `Imagen ${index + 1}`;
+        // Filtrar las imágenes según los tags activos
+        const filteredImages = images.filter(img => activeTags.some(tag => img.startsWith(tag)));
 
-        img.onload = () => {
-            loadedImages++;
-            if (loadedImages === images.length) {
-                msnry.layout(); // Reorganiza cuando todas las imágenes han cargado
-            }
-        };
+        filteredImages.forEach((fileName, index) => {
+            const div = document.createElement("div");
+            div.classList.add("gallery-item");
 
-        const label = document.createElement("div");
-        label.classList.add("week-label");
-        label.textContent = `Semana ${index + 1}`;
+            const img = document.createElement("img");
+            img.src = `img/plants/${fileName}`;
+            img.alt = `Imagen ${index + 1}`;
 
-        div.appendChild(img);
-        div.appendChild(label);
-        gallery.appendChild(div);
-    });
+            const label = document.createElement("div");
+            label.classList.add("week-label");
+            label.textContent = `Semana ${index + 1}`;
 
-
-
-    const images2 = document.querySelectorAll('.gallery-item img');
-    const modal = document.getElementById('modal');
-    const modalImg = document.getElementById('modal-img');
-    const closeModal = document.getElementById('close');
-
-    images2.forEach(image => {
-        image.addEventListener('click', () => {
-            const imgSrc = image.src;
-            modalImg.src = imgSrc;
-            modal.style.display = 'flex';
+            div.appendChild(img);
+            div.appendChild(label);
+            gallery.appendChild(div);
         });
-    });
 
-    closeModal.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
+        addImageClickEvents();
+    }
 
-    // Close modal when clicking outside the image
-    modal.addEventListener('click', (event) => {
-        if (event.target === modal) {
+    // Función para agregar eventos de clic a las imágenes
+    function addImageClickEvents() {
+        const images2 = document.querySelectorAll('.gallery-item img');
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modal-img');
+        const closeModal = document.getElementById('close');
+
+        images2.forEach(image => {
+            image.addEventListener('click', () => {
+                modalImg.src = image.src;
+                modal.style.display = 'flex';
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
             modal.style.display = 'none';
+        });
+
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    }
+
+    // Función para agregar un tag y actualizar la galería
+    function addTag(tag) {
+        if (!activeTags.includes(tag)) {
+            activeTags.push(tag);
+            const tagButton = document.querySelector(`[data-tag="${tag}"]`);
+            tagButton.classList.add("active");
+            loadImages();
+        }
+    }
+
+    // Función para eliminar un tag y actualizar la galería
+    function removeTag(tag) {
+        activeTags = activeTags.filter(activeTag => activeTag !== tag);
+        const tagButton = document.querySelector(`[data-tag="${tag}"]`);
+        tagButton.classList.remove("active");
+        loadImages();
+    }
+
+    // Agregar eventos de clic en los botones de los tags
+    tagsContainer.addEventListener("click", (event) => {
+        if (event.target.classList.contains("tag-button")) {
+            const tag = event.target.getAttribute("data-tag");
+            if (activeTags.includes(tag)) {
+                removeTag(tag);
+            } else {
+                addTag(tag);
+            }
         }
     });
 
+    // Cargar imágenes por defecto
+    //loadImages(); // Cargar todas las imágenes al inicio
 });

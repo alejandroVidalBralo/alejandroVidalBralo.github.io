@@ -73,3 +73,21 @@
         width: 100%;
     }
 }
+
+
+/* Estilo para los botones de los tags */
+.tag-button {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: var(--background);
+    width: 150px;
+    color: rgb(212, 211, 211);
+}
+
+.tag-button.active {
+    background-color: rgb(212, 211, 211);
+    color: var(--background);
+}
+
