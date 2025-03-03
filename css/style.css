@@ -79,14 +79,14 @@ nav ul li a:hover {
 }
 
 
-
 .separator {
     width: 90%;
     height: 3px;
     margin: 20px auto;
     background: linear-gradient(to right, var(--text_green), var(--text_red));
-    background-size: 200% 100%; /* Define el tamaño del gradiente (200% en ancho) */
-    animation: gradientMove 5s linear infinite; /* Animación continua */
+    background-size: 200% 100%;
+    animation: gradientMove 5s linear infinite;
+    will-change: background-position; /* Ayuda a mejorar la animación en móviles */
 }
 
 /* Definimos la animación con @keyframes */
