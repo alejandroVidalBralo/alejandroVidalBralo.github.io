@@ -23,12 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
             div.classList.add("gallery-item");
 
             const img = document.createElement("img");
-            img.src = `img/plants/${fileName}`;
+            img.src = `../img/plants/${fileName}`;
             img.alt = `Imagen ${index + 1}`;
 
             const label = document.createElement("div");
             label.classList.add("week-label");
-            label.textContent = `Semana ${index + 1}`;
+            label.textContent = `Imagen ${fileName}`;
 
             div.appendChild(img);
             div.appendChild(label);

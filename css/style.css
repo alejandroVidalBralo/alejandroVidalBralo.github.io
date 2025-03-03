@@ -16,7 +16,9 @@
 html, body {
     height: 100%;            
     margin: 0;               
-    overflow-x: hidden;}
+    overflow-x: hidden;
+    font: 'Overpass Mono', monospace;
+}
 
 
 #phd::after {
@@ -78,10 +80,31 @@ nav ul li a:hover {
 
 
 
+.separator {
+    width: 90%;
+    height: 3px;
+    margin: 20px auto;
+    background: linear-gradient(to right, var(--text_green), var(--text_red));
+    background-size: 200% 100%; /* Define el tamaño del gradiente (200% en ancho) */
+    animation: gradientMove 5s linear infinite; /* Animación continua */
+}
 
+/* Definimos la animación con @keyframes */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 0%; /* Empieza desde la izquierda */
+    }
+    50% {
+        background-position: 100% 0%; /* Se desplaza completamente a la derecha */
+    }
+    100% {
+        background-position: 0% 0%; /* Vuelve a la posición inicial (izquierda) */
+    }
+}
 
 
 body {
+
     background-color: var(--background);
     color: var(--text_red);
     font-family: 'Overpass Mono', monospace;
@@ -195,4 +218,10 @@ footer a{
     text-decoration: none;
     color: #ffffff;
     font-size: 14px;
+}
+
+
+/* Aseguramos que los enlaces no cambien de color al ser visitados */
+header h1 a:visited {
+    color: inherit; /* Elimina cualquier color específico que el navegador aplique por defecto */
 }

@@ -6,7 +6,7 @@ usefulLink1.addEventListener('mouseover', () => {
 });
 
 usefulLink1.addEventListener('mouseout', () => {
-    usefulLink1.innerHTML = 'project'; 
+    usefulLink1.innerHTML = 'hobbies and projects'; 
 });
 
 usefulLink1.addEventListener('click', (e) => {
@@ -25,7 +25,7 @@ usefulLink2.addEventListener('mouseover', () => {
 });
 
 usefulLink2.addEventListener('mouseout', () => {
-    usefulLink2.innerHTML = 'useful for me'; 
+    usefulLink2.innerHTML = 'tools useful for me'; 
 });
 
 usefulLink2.addEventListener('click', (e) => {
