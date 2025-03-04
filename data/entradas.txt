@@ -1,0 +1,13 @@
+TÍTULO: virtual control lab
+FECHA: 2025-03-04
+AUTOR: Alejandro Vidal
+IMAGEN: ../img/blog/ball-bar.png
+CONTENIDO:
+this executable allows users to implement different control strategies on a ball-bar system
+
+# working
+the executable iniciates a tcp server listening on port 1234. sending a float change the rotation target of the bar, sending "pos" returns a json with pos_x and pos_y of the bar
+
+## source code and downloads
+the projects is uploaded in <a href="abc.com">github</a> with the source code and an example of use in python
+more docs and future work can be found there
