@@ -78,12 +78,46 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
+.defs {
+
+    display: inline-block;
+    margin: 25px auto;
+    text-align: left;
+    max-width: 90%;
+
+}
+
+.defs ul {
+    list-style-type: none; /* Quitar los puntos de la lista */
+    padding: 0; /* Eliminar el padding del <ul> */
+    margin: 0; /* Eliminar el margen por defecto */
+}
+
+.defs li {
+    margin-bottom: 10px; /* Espacio entre cada <li> */
+    color: rgb(212, 211, 211);
+}
+
+.defs h4 {
+    display: inline; /* Mostrar el h3 en la misma línea que el texto */
+    margin-right: 10px; /* Espacio entre el h3 y el texto */
+    color: var(--text_green);
+}
+
+
+
+.defs ul li b {
+
+    color: var(--text_blue);
+
+}
+
 
 .separator {
     width: 90%;
     height: 3px;
     margin: 20px auto;
-    background: linear-gradient(to right, var(--text_green), var(--text_red));
+    background: linear-gradient(to right, var(--background), var(--text_red));
     background-size: 200% 100%;
     animation: gradientMove 5s linear infinite;
     will-change: background-position; /* Ayuda a mejorar la animación en móviles */
