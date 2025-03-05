@@ -55,10 +55,13 @@ function displayEntriesGrid(entries) {
             <img src="${entry.imagen}" alt="${entry.titulo}" class="card-image">
             <h3>${entry.titulo}</h3>
             <p>${entry.fecha} - ${entry.autor}</p>
-            <button onclick="showEntry(${index})">Leer más</button>
         `;
 
         gridContainer.appendChild(entryCard);
+
+        entryCard.onclick = () => showEntry(index);
+        entryCard.style.cursor = "pointer"; // Para indicar que es clickeable
+
     });
 
     // Guardamos las entradas en localStorage para poder accederlas al hacer clic
@@ -94,8 +97,19 @@ function goBack() {
 }
 
 function parseContent(content) {
-    content = content.replace(/# (.*?)\n/g, "<h1>$1</h1>");
-    content = content.replace(/## (.*?)\n/g, "<h2>$1</h2>");
+    // Asegurar que haya un salto de línea al final para que las expresiones regulares lo capturen bien
+    content = content.trim() + "\n";
+
+    // Convertir encabezados
+    content = content.replace(/^# (.*?)$/gm, "<h1>$1</h1>");
+    content = content.replace(/^## (.*?)$/gm, "<h2>$1</h2>");
+
+    // Convertir imágenes estilo Markdown
     content = content.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" class="entry-image">');
-    return `<p>${content.replace(/\n/g, "</p><p>")}</p>`;
+
+    // Convertir párrafos (pero sin afectar etiquetas ya convertidas)
+    content = content.replace(/\n{2,}/g, "</p><p>"); // Doble salto de línea = nuevo párrafo
+    content = `<p>${content.replace(/\n/g, "<br>")}</p>`; // Saltos de línea normales dentro de un párrafo
+
+    return content;
 }
