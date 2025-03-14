@@ -1,8 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300;400;600&display=swap');
+@font-face {
+    font-family: 'MonkeyIsland';
+    src: url('mkir.ttf') format('truetype'); 
+    font-weight: normal;
+    font-style: normal;
+}
 
 :root {
     --background: #181818;        
-    --text_green: #00a67d; 
+    --text_green: rgb(0, 166, 125); 
     --text_red: #df3079 ; 
     --text_blue: #2e95d3;
 }
@@ -17,9 +22,18 @@ html, body {
     height: 100%;            
     margin: 0;               
     overflow-x: hidden;
-    font: 'Overpass Mono', monospace;
+    font-family: 'MonkeyIsland', monospace; /* Cambiado font por font-family */
 }
 
+.header-container img {
+    filter: drop-shadow(0px 20px 10px #4d4d4d);
+    mask-image:
+    linear-gradient(
+        to top,
+        rgba(255, 255, 255, 0) 5%,
+        white 10%
+    );
+}
 
 #phd::after {
     content: '|'; 
@@ -71,6 +85,7 @@ nav ul li a {
     text-decoration: none;
     color: var(--text_blue);
     font-weight: bold;
+    font-size: small;
 }
 
 
@@ -113,35 +128,12 @@ nav ul li a:hover {
 }
 
 
-.separator {
-    width: 90%;
-    height: 3px;
-    margin: 20px auto;
-    background: linear-gradient(to right, var(--background), var(--text_red));
-    background-size: 200% 100%;
-    animation: gradientMove 5s linear infinite;
-    will-change: background-position; /* Ayuda a mejorar la animación en móviles */
-}
-
-/* Definimos la animación con @keyframes */
-@keyframes gradientMove {
-    0% {
-        background-position: 0% 0%; /* Empieza desde la izquierda */
-    }
-    50% {
-        background-position: 100% 0%; /* Se desplaza completamente a la derecha */
-    }
-    100% {
-        background-position: 0% 0%; /* Vuelve a la posición inicial (izquierda) */
-    }
-}
 
 
 body {
 
     background-color: var(--background);
     color: var(--text_red);
-    font-family: 'Overpass Mono', monospace;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -166,20 +158,17 @@ h2 {
     position: relative; /* Se agrega para contener el dropdown */
 }
 
+.section:hover {
 
+    background-color: #333; 
+    transition: 0.5s;
 
-.section a {
-    text-decoration: none;  
-    display: inline-block;         
-    height: 100%;         
-    color: var(--text_green);  
-    transition: color 1s, text-decoration 1s, scale 1s;
 }
 
-.section a:hover {
-    text-decoration: underline;
-    color: var(--text_blue);
-    transform: scale(1.1);
+.section a {
+
+    font-size: small;
+    color: var(--text_green);
 }
 
 
@@ -205,6 +194,7 @@ footer {
     justify-content: center;
     text-align: center;
     flex-direction: column;
+    font-size: x-small;
   }
 
 footer a{
@@ -224,7 +214,7 @@ footer a{
     text-decoration: none;
 }
 
-#dropdown1, #dropdown2 {
+#dropdown0, #dropdown1, #dropdown2 {
     position: absolute; /* Cambiar de 'static' o 'relative' a 'absolute' */
     top: 100%; /* Esto hace que el dropdown se posicione justo debajo del link */
     left: 0;

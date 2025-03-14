@@ -1,34 +1,24 @@
-const usefulLink1 = document.getElementById('useful-link1');
-const dropdown1 = document.getElementById('dropdown1');
+const dropdownSections = [
+    { section: 'dropdown0_section', box: 'dropdown0', defaultText: 'about me' },
+    { section: 'dropdown1_section', box: 'dropdown1', defaultText: 'hobbies and projects' },
+    { section: 'dropdown2_section', box: 'dropdown2', defaultText: 'my experience' } // Adjust the default text as needed
+];
 
-usefulLink1.addEventListener('mouseover', () => {
-    usefulLink1.innerHTML = '&nbsp;&nbsp;&nbsp;↓ ↓ ↓&nbsp;&nbsp;&nbsp;'; 
-});
+dropdownSections.forEach(dropdown => {
+    const dropdownElement = document.getElementById(dropdown.section);
+    const dropdownBox = document.getElementById(dropdown.box);
 
-usefulLink1.addEventListener('mouseout', () => {
-    usefulLink1.innerHTML = 'hobbies and projects'; 
-});
+    dropdownElement.addEventListener('mouseover', () => {
+        dropdownElement.querySelector('a').textContent = '↓';
+    });
 
-usefulLink1.addEventListener('click', (e) => {
-    e.preventDefault();
-    dropdown1.style.display = dropdown1.style.display === 'none' ? 'block' : 'none'; 
-});
+    dropdownElement.addEventListener('mouseout', () => {
+        dropdownElement.querySelector('a').textContent = dropdown.defaultText;
+    });
 
-
-
-
-const usefulLink2 = document.getElementById('useful-link2');
-const dropdown2 = document.getElementById('dropdown2');
-
-usefulLink2.addEventListener('mouseover', () => {
-    usefulLink2.innerHTML = '&nbsp;&nbsp;&nbsp;↓ ↓ ↓&nbsp;&nbsp;&nbsp;'; 
-});
-
-usefulLink2.addEventListener('mouseout', () => {
-    usefulLink2.innerHTML = 'tools useful for me'; 
-});
-
-usefulLink2.addEventListener('click', (e) => {
-    e.preventDefault();
-    dropdown2.style.display = dropdown2.style.display === 'none' ? 'block' : 'none'; 
+    dropdownElement.addEventListener('click', (e) => {
+        if (e.target.tagName.toLowerCase() === 'a') return;
+        e.preventDefault();
+        dropdownBox.style.display = dropdownBox.style.display === 'none' ? 'block' : 'none';
+    });
 });
